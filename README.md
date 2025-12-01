@@ -20,27 +20,28 @@ pip install -r requirements.txt
 3. GET http://127.0.0.1:8000/search?query=hello&page=1&page_size=5
 
 ## Bonus 1: Design Notes
-1. Several alternative approaches were considered for building the search engine:
+Several alternative approaches were considered for building the search engine:
 
-	● Server-side filtering (current approach)
-	● Fetch all messages from the external API on each request.
-	● Filter messages containing the query.
-	● Pros: Simple, minimal setup.
-	● Cons: Can be slow if the dataset grows.
+1. **Server-side filtering (current approach)**
 
-2. Pre-indexing messages
+   - Fetch all messages from the external API on each request.
+   - Filter messages containing the query.
+   - Pros: Simple, minimal setup.
+   - Cons: Can be slow if the dataset grows.
 
-● Periodically fetch messages and store in memory (Redis, SQLite).
-● Use in-memory filtering or simple full-text search.
-● Pros: Faster responses for repeated queries.
-● Cons: Requires periodic updates.
+2. **Pre-indexing messages**
 
-3. Full-text search engine (Elasticsearch / Meilisearch)
+   - Periodically fetch messages and store in memory (Redis, SQLite).
+   - Use in-memory filtering or simple full-text search.
+   - Pros: Faster responses for repeated queries.
+   - Cons: Requires periodic updates.
 
-● Index messages in a dedicated search engine.
-● Supports relevance scoring, fuzzy search, and extremely fast queries.
-● Pros: Very fast, scalable, feature-rich.
-● Cons: More setup and infrastructure needed.
+3. **Full-text search engine (Elasticsearch / Meilisearch)**
+
+   - Index messages in a dedicated search engine.
+   - Supports relevance scoring, fuzzy search, and extremely fast queries.
+   - Pros: Very fast, scalable, feature-rich.
+   - Cons: More setup and infrastructure needed.
 
 ## Bonus 2: Data Insights (Reducing Latency)
 To reduce latency to ~30ms, we can:
