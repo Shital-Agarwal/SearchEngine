@@ -22,11 +22,11 @@ pip install -r requirements.txt
 ## Bonus 1: Design Notes
 1. Several alternative approaches were considered for building the search engine:
 
-● Server-side filtering (current approach)
-● Fetch all messages from the external API on each request.
-● Filter messages containing the query.
-● Pros: Simple, minimal setup.
-● Cons: Can be slow if the dataset grows.
+	● Server-side filtering (current approach)
+	● Fetch all messages from the external API on each request.
+	● Filter messages containing the query.
+	● Pros: Simple, minimal setup.
+	● Cons: Can be slow if the dataset grows.
 
 2. Pre-indexing messages
 
