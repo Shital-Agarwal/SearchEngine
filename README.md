@@ -44,21 +44,27 @@ Several alternative approaches were considered for building the search engine:
    - Cons: More setup and infrastructure needed.
 
 ## Bonus 2: Data Insights (Reducing Latency)
+
 To reduce latency to ~30ms, we can:
 
-1. Use in-memory caching
-● Cache results for frequent queries using Redis or Python cachetools.
+1. **Use in-memory caching**
 
-2. Pre-fetch and index messages
-● Avoid fetching all messages on every request by maintaining a local copy.
+   - Cache results for frequent queries using Redis or Python cachetools.
 
-3. Use a dedicated search engine
-● Elasticsearch or Meilisearch can return results almost instantly.
+2. **Pre-fetch and index messages**
 
-4. Optimize network requests
-● Keep-alive connections, HTTP/2, and async requests reduce overhead.
+   - Avoid fetching all messages on every request by maintaining a local copy.
 
-5. Efficient pagination
-● Only process and return the requested page, instead of filtering the entire dataset every time.
+3. **Use a dedicated search engine**
+
+   - Elasticsearch or Meilisearch can return results almost instantly.
+
+4. **Optimize network requests**
+
+   - Keep-alive connections, HTTP/2, and async requests reduce overhead.
+
+5. **Efficient pagination**
+
+   - Only process and return the requested page, instead of filtering the entire dataset every time.
 
 
