@@ -11,7 +11,6 @@ This project is a small API service that provides a search endpoint `/search`. I
 
 ## How to Run Locally
 1. Install dependencies:
-```bash
 pip install -r requirements.txt
 
 ## Run the server:
